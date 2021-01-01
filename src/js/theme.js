@@ -16,16 +16,16 @@ const changeTheme = () => {
 const addTheme = () => {
     checkboxRef.checked = true;
     body.classList.add(DARK);
+    body.classList.replace(LIGHT, DARK);
     localStorage.setItem('Theme', DARK)
 };
 const deleteTheme = () => {
-    body.classList.remove(DARK);
+    body.classList.replace(DARK, LIGHT);
     localStorage.setItem('Theme', LIGHT);
 };
 const localStorageReader = () => {
     const saveTheme = localStorage.getItem('Theme');
     saveTheme === DARK ? addTheme() : deleteTheme();
-    console.log(saveTheme);
 }
 localStorageReader()
 checkboxRef.addEventListener('change', changeTheme);
